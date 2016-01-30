@@ -3,25 +3,24 @@ using System.Collections;
 public class ShaftPlane : MonoBehaviour {
 
     public AnimationCurve shaftCurve;
+    public float width = 50f;
+    public float heigth = 100f;
 
     // Use this for initialization
     void Start() {
         // Create Vector2 vertices
         Vector2[] vertices2D = new Vector2[] {
-            new Vector2(20,0),
-            new Vector2(13,50),
-            new Vector2(0,100),
-            new Vector2(-13,50),
-            new Vector2(0,0),
-        };
-        Vector2[] vertices2D1 = new Vector2[] {
-            new Vector2(shaftCurve.Evaluate(0f)*20f,0f),
-            new Vector2(shaftCurve.Evaluate(0.5f)*20f,50),
-            new Vector2(shaftCurve.Evaluate(1f)*20f,100),
-            new Vector2(shaftCurve.Evaluate(0.5f)*20f,50)
+            // Right side:
+            new Vector2(shaftCurve.Evaluate(0f)*width, 0f),
+            new Vector2(shaftCurve.Evaluate(0.5f)*width, heigth / 2f),
+            new Vector2(shaftCurve.Evaluate(1f)*width, heigth),
+            // Left side:
+            new Vector2(-shaftCurve.Evaluate(1f)*width, heigth),
+            new Vector2(-shaftCurve.Evaluate(0.5f)*width, heigth / 2f),
+            new Vector2(-shaftCurve.Evaluate(0f)*width, 0f),
         };
 
-        for(int i = 0; i < vertices2D.Length; i++) {
+        for (int i = 0; i < vertices2D.Length; i++) {
             Debug.Log(vertices2D[i]);
         }
 
