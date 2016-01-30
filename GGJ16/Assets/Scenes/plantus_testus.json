@@ -1,0 +1,14 @@
+{
+	genrius:"Plantus",
+	specius:"Testus",
+	structure:[
+		shaft:{
+			slots:[
+				slot1:{
+					height:10,
+					side:0
+				}
+			]
+		}
+	]
+}

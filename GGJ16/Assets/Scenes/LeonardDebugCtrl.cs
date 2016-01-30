@@ -3,9 +3,11 @@ using System.Collections;
 
 public class LeonardDebugCtrl : MonoBehaviour {
 
+    public Plant yoloPlante;
+
 	// Use this for initialization
 	void Start () {
-	
+        yoloPlante.Grow();
 	}
 	
 	// Update is called once per frame

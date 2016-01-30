@@ -1,22 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Plant : MonoBehaviour {
+public class Plant{
 
 	//private Attachment rootAttachment;
+
 
 	string binomialGenus;
 	string binomialSpecies;
 
-	// Use this for initialization
-	void Start () {
+    Attachment root;
 
-	}
-
-	// Update is called once per frame
-	void Update () {
-
-	}
 
 	public void Grow(){
 		//Find an empty attachment slot and grow a new shaft on it
@@ -28,12 +22,12 @@ public class Plant : MonoBehaviour {
 
 	public string Name{
 		get
-    {
-        return this.binomialGenus+" "+this.binomialSpecies;
-    }
-    set
-    {
-        this.binomialSpecies = value;
-    }
+        {
+            return this.binomialGenus+" "+this.binomialSpecies;
+        }
+        set
+        {
+            this.binomialSpecies = value;
+        }
 	}
 }

@@ -2,20 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Shaft : MonoBehaviour {
+public class Shaft:Attachment{
 
-	public List<GameObject> attachmentSlots = new List<GameObject>();
+	public List<Attachment> attachmentSlots = new List<Attachment>();
 
-	// Use this for initialization
-	void Start () {
-        for (int i = 0; i < attachmentSlots.Count; i++)
-        {
-            attachmentSlots[i].SetActive(false);
-        }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }
