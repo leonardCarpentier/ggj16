@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ShaftPlane : MonoBehaviour {
 
     public AnimationCurve shaftCurve;
-    public const int NUMBER_OF_VERTICES = 600;
+    public const int NUMBER_OF_VERTICES = 50;
     public float width = 50f;
     public float heigth = 100f;
 
@@ -39,11 +39,23 @@ public class ShaftPlane : MonoBehaviour {
         Mesh msh = new Mesh();
         msh.vertices = vertices;
         msh.triangles = indices;
+
+        Vector2[] uvs = new Vector2[vertices.Length];
+
+        for (int i = 0; i < uvs.Length; i++)
+        {
+            uvs[i] = new Vector2(vertices[i].x, vertices[i].z);
+        }
+        msh.uv = uvs;
+
         msh.RecalculateNormals();
         msh.RecalculateBounds();
+        msh.Optimize();
 
         // Set up game object with mesh;
         MeshFilter filter = GetComponent<MeshFilter>();
         filter.mesh = msh;
+
+
     }
 }
