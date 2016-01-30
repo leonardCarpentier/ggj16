@@ -4,11 +4,14 @@ using System.Collections.Generic;
 
 public class Shaft : MonoBehaviour {
 
-	List<Vector2> attachmentSlots = new List<Vector2>();
+	public List<GameObject> attachmentSlots = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
-	
+        for (int i = 0; i < attachmentSlots.Count; i++)
+        {
+            attachmentSlots[i].SetActive(false);
+        }
 	}
 	
 	// Update is called once per frame
