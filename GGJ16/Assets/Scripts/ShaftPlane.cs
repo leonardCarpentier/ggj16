@@ -11,20 +11,18 @@ public class ShaftPlane : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        // Create Vector2 vertices
 
+        // Create the vertices of the plant
         List<Vector2> vertices2D = new List<Vector2>();
-        int halfPoints = NUMBER_OF_VERTICES / 2;
+        int halfPoints = NUMBER_OF_VERTICES / 2; // Number of points for one side of the plant
         for (int i = 0; i < NUMBER_OF_VERTICES; i++) {
-            int sideFactor = i < halfPoints ? 1 : -1;
-            
-            float percentOfCompletion = ((float)(i % halfPoints)) / ((float)halfPoints - 1f);
-            if(sideFactor > 0)
-                vertices2D.Add(new Vector2(shaftCurve.Evaluate(percentOfCompletion) * width * sideFactor, heigth * percentOfCompletion));
-            else
-                vertices2D.Add(new Vector2(shaftCurve.Evaluate(1 - percentOfCompletion) * width * sideFactor, heigth * (1 - percentOfCompletion)));
+            int sideFactor = i < halfPoints ? 1 : -1; // This factor helps to draw the plant with one single stroke
+            float percentOfCompletion = ((float)(i % halfPoints)) / ((float)halfPoints - 1f); // Percentage of completion of a single side
 
-            Debug.Log(vertices2D[i]);
+            if(sideFactor > 0) // Right side of the plant
+                vertices2D.Add(new Vector2(shaftCurve.Evaluate(percentOfCompletion) * width * sideFactor, heigth * percentOfCompletion));
+            else // Left side of the plant
+                vertices2D.Add(new Vector2(shaftCurve.Evaluate(1 - percentOfCompletion) * width * sideFactor, heigth * (1 - percentOfCompletion)));
         }
 
         // Use the triangulator to get indices for creating triangles
