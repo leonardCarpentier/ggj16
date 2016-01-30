@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ShaftPlane : MonoBehaviour {
 
     public AnimationCurve shaftCurve;
-    public const int NUMBER_OF_VERTICES = 50;
+    public const int NUMBER_OF_VERTICES = 20;
     public float width = 50f;
     public float heigth = 100f;
 
